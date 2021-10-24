@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "rsuite/dist/rsuite.min.css";
+import "./styles/style.scss";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-function App() {
+// pages and components
+import SideNavbar from "./components/sideNavbar/SideNavbar";
+
+import Live from "./pages/Live";
+import Result from "./pages/Result";
+import Upcoming from "./pages/Upcoming";
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="container">
+        <SideNavbar />
+        <Switch>
+          <Route path="/live" exact>
+            <Live />
+          </Route>
+          <Route path="/upcoming" exact>
+            <Upcoming />
+          </Route>
+          <Route path="/result" exact>
+            <Result />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   );
-}
+};
 
 export default App;

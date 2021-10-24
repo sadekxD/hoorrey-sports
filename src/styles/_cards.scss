@@ -1,0 +1,141 @@
+.live-card {
+  margin-bottom: 2rem;
+  .h5 {
+    font-size: 24px;
+    margin-bottom: 0.5rem;
+    color: red;
+    line-height: 1.4;
+  }
+
+  .p {
+    font-size: 1rem;
+    color: rgba(0, 0, 0, 0.5);
+    margin-bottom: 1.4rem;
+  }
+  .row-1,
+  .row-2 {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    color: $textPrimary;
+
+    .team-img {
+      height: 28px;
+      width: 50px;
+      object-fit: cover;
+      margin-right: 1rem;
+    }
+
+    .team-name {
+      font-weight: 700;
+    }
+  }
+
+  .stadium {
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.7);
+  }
+
+  .toss-status {
+    font-size: 1rem;
+    font-weight: 700;
+    color: $textPrimary;
+  }
+}
+
+.upcoming-card {
+  margin-bottom: 2rem;
+  .h6 {
+    font-size: 24px;
+    margin-bottom: 0.5rem;
+    color: $textPrimary;
+    line-height: 1.4;
+  }
+
+  .p {
+    font-size: 1rem;
+    color: rgba(0, 0, 0, 0.5);
+    margin-bottom: 1.4rem;
+    font-weight: 700;
+  }
+  .row-1,
+  .row-2 {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    color: $textPrimary;
+
+    .team-img {
+      height: 28px;
+      width: 50px;
+      object-fit: contain;
+      margin-right: 1rem;
+    }
+
+    .team-name {
+      font-weight: 700;
+    }
+  }
+
+  .stadium {
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.7);
+  }
+
+  .toss-status {
+    font-size: 1rem;
+    font-weight: 700;
+    color: $textPrimary;
+  }
+}
+
+.result-card {
+  margin-bottom: 2rem;
+  .h6 {
+    font-size: 24px;
+    margin-bottom: 0.5rem;
+    color: $textPrimary;
+    line-height: 1.4;
+  }
+
+  .p {
+    font-size: 1rem;
+    color: rgba(0, 0, 0, 0.5);
+    margin-bottom: 1.4rem;
+    font-weight: 700;
+  }
+  .row-1,
+  .row-2 {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    color: $textPrimary;
+    .win-icon {
+      color: yellowgreen;
+    }
+
+    .team-img {
+      height: 28px;
+      width: 50px;
+      object-fit: cover;
+      margin-right: 1rem;
+    }
+
+    &.winner {
+      font-weight: 700;
+    }
+
+    .team-name {
+      font-weight: 700;
+      margin-right: 0.5rem;
+    }
+  }
+
+  .stadium {
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.7);
+  }
+
+  .match-result {
+    font-size: 1rem;
+    font-weight: 700;
+    color: $textPrimary;
+  }
+}

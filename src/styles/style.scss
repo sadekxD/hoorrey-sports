@@ -1,0 +1,106 @@
+@import "./variables";
+@import "./cards";
+
+.container {
+  display: flex;
+}
+
+.page {
+  flex: 1;
+  max-width: 1200px;
+  width: 100%;
+  padding: 1rem;
+}
+
+.sidenav {
+  max-width: 320px;
+  min-width: 320px;
+  width: 100%;
+  padding: 1rem;
+  background-color: #fff;
+  min-height: 100vh;
+
+  .h1 {
+    font-size: 28px;
+    color: $textPrimary;
+    font-weight: 700;
+  }
+
+  .nav-link {
+    padding: 1rem 0.5rem;
+    font-size: 1rem;
+    text-align: left;
+    display: block;
+    margin: 1rem 0;
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.5);
+    font-weight: 600;
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 6px;
+      background: transparent;
+    }
+
+    &.active {
+      background-color: $bgSecondary;
+      color: #000;
+      &::after {
+        background: #59afff;
+      }
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
+}
+
+.top-nav {
+  display: none;
+
+  .nav-wrapper {
+    display: flex;
+    overflow: auto;
+    flex-wrap: nowrap;
+
+    .nav-link {
+      padding: 0.6rem 1rem;
+      font-size: 1rem;
+      text-align: left;
+      display: block;
+      margin: 1rem 0;
+      text-decoration: none;
+      color: rgba(0, 0, 0, 0.5);
+      font-weight: 600;
+      position: relative;
+
+      &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 4px;
+        background: transparent;
+      }
+
+      &.active {
+        background-color: $bgSecondary;
+        color: #000;
+        &::after {
+          background: #59afff;
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    display: block;
+  }
+}
