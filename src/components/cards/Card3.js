@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { FlexboxGrid } from "rsuite";
+import { FlexboxGrid, Grid, Row, Col } from "rsuite";
+import { _beautifyDate } from "../../utils/utils";
 
 const Card3 = ({
   fixture_id,
@@ -43,93 +44,102 @@ const Card3 = ({
       <h6 className="h6">
         {round}, {localteam.code} vs {visitorteam.code}, {type} Series, 2021
       </h6>
-      <p className="p">{starting_at}</p>
+      <p className="p">{_beautifyDate(starting_at)}</p>
 
-      <FlexboxGrid
-        align="middle"
-        justify="space-between"
-        className={`row-1 ${localteam.id === winnerteam.id ? "winner" : ""}`}
-      >
-        <FlexboxGrid.Item>
-          <FlexboxGrid align="middle">
-            <FlexboxGrid.Item>
-              <img
-                src={localteam.image_path}
-                alt={localteam.code}
-                className="team-img"
-              />
-            </FlexboxGrid.Item>
-            <FlexboxGrid.Item className="team-name">
-              {localteam.code}
-            </FlexboxGrid.Item>
-            {localteam.id === winnerteam.id ? (
+      <Grid fluid>
+        <Row
+          className={`row-1 ${
+            winnerteam && localteam.id === winnerteam.id ? "winner" : ""
+          }`}
+        >
+          <Col xs={12}>
+            <FlexboxGrid align="middle">
               <FlexboxGrid.Item>
-                <i className="win-icon fas fa-trophy"></i>
+                <img
+                  src={localteam.image_path}
+                  alt={localteam.code}
+                  className="team-img"
+                />
               </FlexboxGrid.Item>
-            ) : (
-              ""
-            )}
-          </FlexboxGrid>
-        </FlexboxGrid.Item>
-        {localteamData.score && localteamData.wickets && localteamData.overs && (
-          <FlexboxGrid.Item style={{ flex: 0.5 }}>
-            <FlexboxGrid justify="space-between">
-              <FlexboxGrid.Item className="run">
-                Run {localteamData.score}
+              <FlexboxGrid.Item className="team-name">
+                {localteam.code}
               </FlexboxGrid.Item>
-              <FlexboxGrid.Item className="wicket">
-                Wicket {localteamData.wickets}
-              </FlexboxGrid.Item>
-              <FlexboxGrid.Item className="over">
-                Over {localteamData.overs}
-              </FlexboxGrid.Item>
+              {winnerteam && localteam.id === winnerteam.id ? (
+                <FlexboxGrid.Item>
+                  <i className="win-icon fas fa-trophy"></i>
+                </FlexboxGrid.Item>
+              ) : (
+                ""
+              )}
             </FlexboxGrid>
-          </FlexboxGrid.Item>
-        )}
-      </FlexboxGrid>
-      <FlexboxGrid
-        align="middle"
-        justify="space-between"
-        className={`row-2 ${visitorteam.id === winnerteam.id ? "winner" : ""}`}
-      >
-        <FlexboxGrid.Item>
-          <FlexboxGrid align="middle">
-            <FlexboxGrid.Item>
-              <img
-                src={visitorteam.image_path}
-                alt={visitorteam.code}
-                className="team-img"
-              />
-            </FlexboxGrid.Item>
-            <FlexboxGrid.Item className="team-name">
-              {visitorteam.code}
-            </FlexboxGrid.Item>
-            {visitorteam.id === winnerteam.id ? (
+          </Col>
+          <Col xs={12}>
+            {localteamData.score &&
+              localteamData.wickets &&
+              localteamData.overs && (
+                <FlexboxGrid justify="space-between">
+                  <FlexboxGrid.Item className="run">
+                    Run {localteamData.score}
+                  </FlexboxGrid.Item>
+                  <FlexboxGrid.Item className="wicket">
+                    Wicket {localteamData.wickets}
+                  </FlexboxGrid.Item>
+                  <FlexboxGrid.Item className="over">
+                    Over {localteamData.overs}
+                  </FlexboxGrid.Item>
+                </FlexboxGrid>
+              )}
+          </Col>
+        </Row>
+      </Grid>
+      <Grid fluid>
+        <Row
+          className={`row-2 ${
+            winnerteam && visitorteam.id === winnerteam.id ? "winner" : ""
+          }`}
+        >
+          <Col xs={12}>
+            <FlexboxGrid align="middle">
               <FlexboxGrid.Item>
-                <i className="win-icon fas fa-trophy"></i>
+                <img
+                  src={visitorteam.image_path}
+                  alt={visitorteam.code}
+                  className="team-img"
+                />
               </FlexboxGrid.Item>
-            ) : (
-              ""
-            )}
-          </FlexboxGrid>
-        </FlexboxGrid.Item>
-        {visitorTeamData.score &&
-          visitorTeamData.wickets &&
-          visitorTeamData.overs && (
-            <FlexboxGrid.Item style={{ flex: 0.5 }}>
-              <FlexboxGrid justify="space-between">
-                <FlexboxGrid.Item className="run">
-                  Run {visitorTeamData.score}
+              <FlexboxGrid.Item className="team-name">
+                {visitorteam.code}
+              </FlexboxGrid.Item>
+              {winnerteam && visitorteam.id === winnerteam.id ? (
+                <FlexboxGrid.Item>
+                  <i className="win-icon fas fa-trophy"></i>
                 </FlexboxGrid.Item>
-                <FlexboxGrid.Item className="wicket">
-                  Wicket {visitorTeamData.wickets}
-                </FlexboxGrid.Item>
-                <FlexboxGrid.Item className="over">
-                  Over {visitorTeamData.overs}
-                </FlexboxGrid.Item>
-              </FlexboxGrid>
-            </FlexboxGrid.Item>
-          )}
+              ) : (
+                ""
+              )}
+            </FlexboxGrid>
+          </Col>
+          <Col xs={12}>
+            {visitorTeamData.score &&
+              visitorTeamData.wickets &&
+              visitorTeamData.overs && (
+                <FlexboxGrid justify="space-between">
+                  <FlexboxGrid.Item className="run">
+                    Run {visitorTeamData.score}
+                  </FlexboxGrid.Item>
+                  <FlexboxGrid.Item className="wicket">
+                    Wicket {visitorTeamData.wickets}
+                  </FlexboxGrid.Item>
+                  <FlexboxGrid.Item className="over">
+                    Over {visitorTeamData.overs}
+                  </FlexboxGrid.Item>
+                </FlexboxGrid>
+              )}
+          </Col>
+        </Row>
+      </Grid>
+      <FlexboxGrid align="middle" justify="space-between">
+        <FlexboxGrid.Item></FlexboxGrid.Item>
       </FlexboxGrid>
       {venue && <p className="stadium">{venue.name}</p>}
       <p className="match-result">{note}</p>

@@ -1,5 +1,6 @@
 import React from "react";
 import { FlexboxGrid } from "rsuite";
+import { _beautifyDate } from "../../utils/utils";
 
 const Card2 = ({ localteam, visitorteam, venue, type, round, starting_at }) => {
   return (
@@ -7,7 +8,7 @@ const Card2 = ({ localteam, visitorteam, venue, type, round, starting_at }) => {
       <h6 className="h6">
         {round}, {localteam.code} vs {visitorteam.code}, {type} Series, 2021
       </h6>
-      <p className="p">{starting_at}</p>
+      <p className="p">{_beautifyDate(starting_at)}</p>
 
       <FlexboxGrid align="middle" justify="space-between" className="row-1">
         <FlexboxGrid.Item>

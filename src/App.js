@@ -9,6 +9,9 @@ import SideNavbar from "./components/sideNavbar/SideNavbar";
 import Live from "./pages/Live";
 import Result from "./pages/Result";
 import Upcoming from "./pages/Upcoming";
+import CricketStatusCard from "./components/homepageCards/CricketStatusCard";
+import HoroscopeCard from "./components/homepageCards/HoroscopeCard";
+import Home from "./pages/Home";
 
 const App = () => {
   return (
@@ -16,6 +19,9 @@ const App = () => {
       <div className="container">
         <SideNavbar />
         <Switch>
+          <Route path="/" exact>
+            <Home />
+          </Route>
           <Route path="/live" exact>
             <Live />
           </Route>

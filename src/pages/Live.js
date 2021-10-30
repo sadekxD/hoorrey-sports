@@ -9,23 +9,23 @@ const Live = () => {
   useEffect(() => {
     axios
       .get(
-        "/fixtures?api_token=YqWNTDSm37V7u4dKKmyy3tgZ9yADTwt8SBLn2VBEnC4TvPQ8hAKD41UEx04L&filter[league_id]=3",
+        "/livescores?api_token=YqWNTDSm37V7u4dKKmyy3tgZ9yADTwt8SBLn2VBEnC4TvPQ8hAKD41UEx04L&include=localteam,visitorteam,venue",
         {
           headers: {
             "Access-Control-Allow-Origin": "*",
           },
         }
       )
-      .then((res) => console.log(res))
+      .then((res) => setData(res.data.data))
       .catch((err) => console.log(err));
   }, []);
 
   return (
     <div className="page">
       <TopNavbar />
-      <Card1 />
-      <Card1 />
-      <Card1 />
+      {data.map((item) => (
+        <Card1 key={item.id} fixture_id={item.id} {...item} />
+      ))}
     </div>
   );
 };

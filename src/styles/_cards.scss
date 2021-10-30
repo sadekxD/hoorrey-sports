@@ -1,10 +1,12 @@
 .live-card {
   margin-bottom: 2rem;
   .h5 {
-    font-size: 24px;
+    font-size: 20px;
     margin-bottom: 0.5rem;
     color: red;
     line-height: 1.4;
+    display: flex;
+    align-items: center;
   }
 
   .p {
@@ -137,5 +139,87 @@
     font-size: 1rem;
     font-weight: 700;
     color: $textPrimary;
+  }
+}
+
+.cricket-status-card {
+  max-width: 400px;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  background-color: #13386a;
+
+  .header {
+    font-weight: 700;
+    font-size: 24px;
+    color: #fff;
+  }
+
+  .row-2 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #fff;
+
+    h3 {
+      font-size: 1rem;
+      color: red;
+    }
+  }
+
+  .row-3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #fff;
+
+    h3 {
+      font-size: 1rem;
+      color: #fff;
+    }
+  }
+
+  .hr {
+    height: 1px;
+    background: #fff;
+  }
+}
+
+.horoscope-card {
+  max-width: 400px;
+  border-radius: 0.5rem;
+  background-color: #13386a;
+  margin-top: 1rem;
+  padding: 1rem;
+
+  .header {
+    font-size: 24px;
+    color: #fff;
+    font-weight: 700;
+  }
+
+  .col-1 {
+    img {
+      max-width: 80px;
+    }
+  }
+
+  .col-2 {
+    flex: 1;
+    padding-left: 1rem;
+    h3 {
+      font-size: 17px;
+      color: #fff;
+      span {
+        font-size: 14px;
+      }
+    }
+
+    .hr {
+      margin: 0.3rem 0;
+    }
+
+    p {
+      word-break: break-all;
+      white-space: normal;
+      color: #fff;
+    }
   }
 }
